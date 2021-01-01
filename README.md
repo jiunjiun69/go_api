@@ -1,3 +1,100 @@
+# 執行
+'''
+go run main.go 
+'''
+
+# 修改swagger
+'''
+swag init
+'''
+
+# MySQL新增指令
+'''
+use service_api;
+
+CREATE TABLE `blog_tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT '' COMMENT '標籤名稱',
+  `created_on` int(10) unsigned DEFAULT '0' COMMENT '建立時間',
+  `created_by` varchar(100) DEFAULT '' COMMENT '建立人',
+  `modified_on` int(10) unsigned DEFAULT '0' COMMENT '修改時間',
+  `modified_by` varchar(100) DEFAULT '' COMMENT '修改人',
+  `deleted_on` int(10) unsigned DEFAULT '0' COMMENT '刪除時間',
+  `is_del` tinyint(3) unsigned DEFAULT '0' COMMENT '是否刪除 0為未刪除、1為已刪除',
+  `state` tinyint(3) unsigned DEFAULT '1' COMMENT '狀態 0為禁用、1為啟用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='標籤管理';
+
+CREATE TABLE `blog_auth` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `app_key` varchar(20) DEFAULT '' COMMENT 'Key',
+  `app_secret` varchar(50) DEFAULT '' COMMENT 'Secret',
+  `created_on` int(10) unsigned DEFAULT '0' COMMENT '新建時間',
+  `created_by` varchar(100) DEFAULT '' COMMENT '建立人',
+  `modified_on` int(10) unsigned DEFAULT '0' COMMENT '修改時間',
+  `modified_by` varchar(100) DEFAULT '' COMMENT '修改人',
+  `deleted_on` int(10) unsigned DEFAULT '0' COMMENT '刪除時間',
+  `is_del` tinyint(3) unsigned DEFAULT '0' COMMENT '是否刪除 0為未刪除、1為已刪除',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='認證管理';
+
+CREATE TABLE `blog_fish_tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `fish_id` int(11) NOT NULL COMMENT '魚隻ID',
+  `tag_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '標籤ID',
+  `created_on` int(10) unsigned DEFAULT '0' COMMENT '建立時間',
+  `created_by` varchar(100) DEFAULT '' COMMENT '建立人',
+  `modified_on` int(10) unsigned DEFAULT '0' COMMENT '修改時間',
+  `modified_by` varchar(100) DEFAULT '' COMMENT '修改人',
+  `deleted_on` int(10) unsigned DEFAULT '0' COMMENT '刪除時間',
+  `is_del` tinyint(3) unsigned DEFAULT '0' COMMENT '是否刪除 0為未刪除、1為已刪除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='魚隻標籤關聯';
+
+CREATE TABLE `blog_fish` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT '' COMMENT '魚隻名稱',
+  `desc` varchar(255) DEFAULT '' COMMENT '魚隻介紹',
+  `cover_image_url` varchar(255) DEFAULT '' COMMENT '封面圖片地址',
+  `content` longtext COMMENT '魚隻習性',
+  `created_on` int(10) unsigned DEFAULT '0' COMMENT '新建時間',
+  `created_by` varchar(100) DEFAULT '' COMMENT '建立人',
+  `modified_on` int(10) unsigned DEFAULT '0' COMMENT '修改時間',
+  `modified_by` varchar(100) DEFAULT '' COMMENT '修改人',
+  `deleted_on` int(10) unsigned DEFAULT '0' COMMENT '刪除時間',
+  `is_del` tinyint(3) unsigned DEFAULT '0' COMMENT '是否刪除 0為未刪除、1為已刪除',
+  `state` tinyint(3) unsigned DEFAULT '1' COMMENT '狀態 0為禁用、1為啟用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='魚隻管理';
+
+CREATE TABLE `blog_fishpower_tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `fish_id` int(11) NOT NULL COMMENT '魚隻ID',
+  `tag_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '標籤ID',
+  `created_on` int(10) unsigned DEFAULT '0' COMMENT '建立時間',
+  `created_by` varchar(100) DEFAULT '' COMMENT '建立人',
+  `modified_on` int(10) unsigned DEFAULT '0' COMMENT '修改時間',
+  `modified_by` varchar(100) DEFAULT '' COMMENT '修改人',
+  `deleted_on` int(10) unsigned DEFAULT '0' COMMENT '刪除時間',
+  `is_del` tinyint(3) unsigned DEFAULT '0' COMMENT '是否刪除 0為未刪除、1為已刪除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='魚隻活動力標籤關聯';
+
+CREATE TABLE `blog_fishpower` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT '' COMMENT '活動力狀態',
+  `power` longtext COMMENT '活動力數值',
+  `created_on` int(10) unsigned DEFAULT '0' COMMENT '新建時間',
+  `created_by` varchar(100) DEFAULT '' COMMENT '建立人',
+  `modified_on` int(10) unsigned DEFAULT '0' COMMENT '修改時間',
+  `modified_by` varchar(100) DEFAULT '' COMMENT '修改人',
+  `deleted_on` int(10) unsigned DEFAULT '0' COMMENT '刪除時間',
+  `is_del` tinyint(3) unsigned DEFAULT '0' COMMENT '是否刪除 0為未刪除、1為已刪除',
+  `state` tinyint(3) unsigned DEFAULT '1' COMMENT '狀態 0為禁用、1為啟用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='魚隻活動力管理';
+'''
+
 # blog-service（部落格後端）
 
 blog-service 部落格後端
