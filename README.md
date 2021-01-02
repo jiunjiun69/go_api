@@ -1,3 +1,9 @@
+
+# swagger
+'''
+http://127.0.0.1:8000/swagger/index.html
+'''
+
 # 執行
 '''
 go run main.go 
