@@ -1,21 +1,21 @@
 
 # swagger
-'''
+```
 http://127.0.0.1:8000/swagger/index.html
-'''
+```
 
 # 執行
-'''
+```
 go run main.go 
-'''
+```
 
 # 修改swagger
-'''
+```
 swag init
-'''
+```
 
 # MySQL新增指令 fish_final_sql.txt
-'''
+```
 use service_api;
 
 CREATE TABLE `blog_tag` (
@@ -86,10 +86,10 @@ CREATE TABLE `blog_fishpower` (
   `state` tinyint(3) unsigned DEFAULT '1' COMMENT '狀態 0為禁用、1為啟用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='魚隻活動力管理';
-'''
+```
 
 # 資料庫直接匯入資料 service_api.sql
-'''
+```
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: service_api
@@ -275,7 +275,7 @@ UNLOCK TABLES;
 
 -- Dump completed on 2021-01-02 22:29:26
 
-'''
+```
 # blog-service（部落格後端）
 
 blog-service 部落格後端
